@@ -6,6 +6,8 @@ const sequelize = require('./config/connection');
 const router = express.Router();
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const htmlRoutes = require('./controllers/htmlRoutes');
+const passport = require('passport');
+require('./config/passport')(passport);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,6 +21,15 @@ const hbs = exphbs.create({
 app.get('/dashboard', (req, res) => {
   res.render('dashboard');
 });
+
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/login', (req, res) => {
   res.render('login');
