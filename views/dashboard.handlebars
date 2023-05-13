@@ -1,10 +1,22 @@
-
-
 <main>
   <h2>Dashboard</h2>
-  <button id="create-post">Create New Post</button>
+  
+  <form id="new-post-form">
+    <label for="post-title">Title:</label>
+    <input type="text" id="post-title" name="title" required />
+    <br />
+    <label for="post-content">Content:</label>
+    <textarea id="post-content" name="content" required></textarea>
+    <br />
+    <button type="submit">Create Post</button>
+  </form>
+  
   <div id="posts-container">
-   
+    <!-- The user's posts -->
   </div>
 </main>
+
+
+<script src="/js/logout.js"></script>
+<script src="/js/createPost.js"></script>
 

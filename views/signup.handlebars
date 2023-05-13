@@ -1,8 +1,8 @@
-{{> header/header }}
+
 
 <main>
   <h2>Sign Up</h2>
-  <form id="signup-form">
+  <form id="signup-form" action="/api/users/signup" method="post">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required />
     <br />
@@ -15,5 +15,3 @@
     <button type="submit">Sign Up</button>
   </form>
 </main>
-<script src="/js/signup.js"></script>
-{{> footer/footer }}

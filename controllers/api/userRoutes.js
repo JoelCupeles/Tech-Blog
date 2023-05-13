@@ -17,7 +17,7 @@ router.post('/signup', async (req, res) => {
       if (err) {
         return res.status(500).json({ message: 'Error logging in' });
       }
-      res.status(201).json({ message: 'User created and logged in' });
+      res.redirect('/dashboard'); // Redirect the user to the dashboard 
     });
   } catch (err) {
     res.status(500).json(err);

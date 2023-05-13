@@ -21,6 +21,14 @@ User.init(
       allowNull: false,
       unique: true,
     },
+    email: { // Add this field
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
