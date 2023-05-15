@@ -12,11 +12,15 @@
   </form>
   
   <div id="posts-container">
-    <!-- The user's posts -->
+    {{#each posts}}
+      <div class="post">
+        <h3>{{this.title}}</h3>
+        <p>{{this.content}}</p>
+        <p>Posted by {{this.user.username}}</p>
+      </div>
+    {{/each}}
   </div>
 </main>
 
-
 <script src="/js/logout.js"></script>
 <script src="/js/createPost.js"></script>
-

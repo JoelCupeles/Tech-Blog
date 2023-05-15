@@ -1,3 +1,12 @@
-
-
-
+<main>
+  <h2>Welcome to Tech Blog!</h2>
+  <div id="posts-container">
+    {{#each posts}}
+      <div class="post">
+        <h3><a href="/post/{{this.id}}">{{this.title}}</a></h3>
+        <p>{{this.content}}</p>
+        <p>Posted by {{this.user.username}}</p>
+      </div>
+    {{/each}}
+  </div>
+</main>
