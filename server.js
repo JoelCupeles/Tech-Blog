@@ -1,8 +1,12 @@
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./src/controllers');
+const homeRoutes = require('./src/controllers/homeRoutes');
+const userRoutes = require('./src/controllers/userRoutes');
+const dashboardRoutes = require('./src/controllers/dashboardRoutes');
 const sequelize = require('./src/config/connection');
+const helpers = require('./src/utils/auth');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 require('dotenv').config();
@@ -27,8 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+app.use(homeRoutes);
 
-app.use(routes);
+app.use(userRoutes);
+app.use(dashboardRoutes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

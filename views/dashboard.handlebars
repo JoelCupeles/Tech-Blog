@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Your Posts</h1>
+
+  <!-- Add a button here to create a new post -->
+
+  {{#each posts}}
+  <div class="post-card">
+    <h2 class="post-title">{{ title }}</h2>
+    <p class="post-body">{{ body }}</p>
+    <p class="post-date">{{ format_date created_at }}</p>
+
+    <!-- Add buttons here to edit and delete the post -->
+  </div>
+  {{/each}}
