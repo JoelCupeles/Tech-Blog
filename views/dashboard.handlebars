@@ -1,14 +1,19 @@
-<div class="container">
-  <h1>Your Posts</h1>
+<a href='/createPost'>Create Post</a>
 
-  <!-- Add a button here to create a new post -->
+My posts:
 
-  {{#each posts}}
-  <div class="post-card">
-    <h2 class="post-title">{{ title }}</h2>
-    <p class="post-body">{{ body }}</p>
-    <p class="post-date">{{ format_date created_at }}</p>
+{{#each posts as |post|}}
+<section class ="card">
+  <a href="/post/{{id}}">
+    <h4 class="post" data-post="{{post.id}}">{{title}}</h4>
+    <div class="card-body">
+      <p>{{content}}</p>
+      <p>Posted by: {{user.username}}</p>
+      <p>{{createdAt}}</p>
+    </div>
+  </a>
+  <button class="delete">Delete Post</button>
+</section>
+{{/each}}
 
-    <!-- Add buttons here to edit and delete the post -->
-  </div>
-  {{/each}}
+<script src="../public/js/deletepost.js"></script>

@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../src/models');
-const checkLogin = require('../../src/utils/auth');
+const { Post, User } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', checkLogin, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const currentUser = await User.findOne({
       where: {
@@ -34,7 +34,7 @@ router.get('/', checkLogin, async (req, res) => {
   }
 });
 
-router.post('/post', checkLogin, async (req, res) => {
+router.post('/post', withAuth, async (req, res) => {
   try {
     const currentUser = await User.findOne({
       where: {
@@ -56,7 +56,7 @@ router.post('/post', checkLogin, async (req, res) => {
   }
 });
 
-router.delete('/delete', checkLogin, async (req, res) => {
+router.delete('/delete', withAuth, async (req, res) => {
   try {
     await Post.destroy({
       where: {

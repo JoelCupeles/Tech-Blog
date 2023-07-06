@@ -1,10 +1,12 @@
-<div class="container">
-  {{#each posts}}
-  <div class="post-card">
-    <h2 class="post-title">{{ title }}</h2>
-    <p class="post-body">{{ body }}</p>
-    <p class="post-user">Posted by {{ user.username }}</p>
-    <p class="post-date">{{ format_date created_at }}</p>
-  </div>
-  {{/each}}
-</div>
+{{#each posts as |post|}}
+<section class ="card">
+  <a href="/post/{{id}}">
+    <h4>{{title}}</h4>
+    <div class="card-body">
+      <p>{{content}}</p>
+      <p>Posted by: {{user.username}}</p>
+      <p>{{createdAt}}</p>
+    </div>
+  </a>
+</section>
+{{/each}}

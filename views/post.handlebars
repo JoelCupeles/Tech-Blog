@@ -1,20 +1,38 @@
-<div class="container">
-  <div class="post-card">
-    <h2 class="post-title">{{ title }}</h2>
-    <p class="post-body">{{ body }}</p>
-    <p class="post-user">Posted by {{ user.username }}</p>
-    <p class="post-date">{{ format_date created_at }}</p>
-  </div>
+<section class ="card">
+  <div class="card-body">
+    <h4 class="post" data-post="{{post.id}}">{{post.title}}</h4>
+    <p>{{post.content}}</p>
+    <p>Posted by: {{post.user.username}}</p>
+    <p>{{post.createdAt}}</p>
 
-  <!-- Add a form here to add a new comment -->
-
-  <div class="comments">
-    {{#each comments}}
-    <div class="comment">
-      <p class="comment-body">{{ comment_text }}</p>
-      <p class="comment-user">Comment by {{ user.username }}</p>
-      <p class="comment-date">{{ format_date created_at }}</p>
+    <div class="row justify-space-between-md">
+      <div class="comment-card">
+        <h2 class="page-title">Add Comment</h2>
+        <form class="form comment-form">
+          <div class="form-group">
+            <label for="content-comment">Content:</label>
+            <input class="form-input" type="text" id="content-comment" />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Create</button>
+          </div>
+        </form>
+      </div>
     </div>
-     {{/each}}
   </div>
-</div>
+  
+</section>
+
+<h4>Comments:</h4>
+
+{{#each post.comments}}
+<section class="card">
+  <div class="card-body">
+    <p>{{this.content}}</p>
+    <p>{{this.user.username}}</p>
+    <p>{{this.createdAt}}</p>
+  </div>
+</section>
+{{/each}}
+
+<script src="../js/comment.js"></script>
