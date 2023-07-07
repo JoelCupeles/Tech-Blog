@@ -3,35 +3,35 @@ const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
-  try {
-    const currentUser = await User.findOne({
-      where: {
-        username: req.session.username,
-      },
-      attributes: ['id'],
-    });
+    try {
+        const currentUser = await User.findOne({
+            where: {
+                id: req.session.user_id, // Changed from username to user_id
+            },
+            attributes: ['id'],
+        });
 
-    const postData = await Post.findAll({
-      where: {
-        user_id: currentUser.id,
-      },
-      include: {
-        model: User,
-        attributes: ['username'],
-      },
-    });
+        const postData = await Post.findAll({
+            where: {
+                user_id: currentUser.id,
+            },
+            include: {
+                model: User,
+                attributes: ['username'],
+            },
+        });
 
-    const posts = postData.map((post) =>
-      post.get({ plain: true })
-    );
+        const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('dashboard', {
-      posts, loggedIn: req.session.loggedIn
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+        res.render('dashboard', {
+            posts,
+            loggedIn: req.session.logged_in // Changed from loggedIn to logged_in
+        });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 router.post('/post', withAuth, async (req, res) => {
