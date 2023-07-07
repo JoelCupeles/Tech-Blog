@@ -1,0 +1,92 @@
+/* Reset some default styles in browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Use a modern font */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Main container */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    background: #333;
+    padding: 15px;
+}
+
+nav a, nav button {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin: 40px 0;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+/* Cards */
+.card {
+    background: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h4 {
+    margin-bottom: 10px;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .main-container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+}

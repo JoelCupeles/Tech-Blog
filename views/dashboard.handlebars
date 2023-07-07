@@ -1,19 +1,16 @@
 <a href='/createPost'>Create Post</a>
-
 My posts:
-
 {{#each posts as |post|}}
-<section class ="card">
-  <a href="/post/{{id}}">
-    <h4 class="post" data-post="{{post.id}}">{{title}}</h4>
-    <div class="card-body">
-      <p>{{content}}</p>
-      <p>Posted by: {{user.username}}</p>
-      <p>{{createdAt}}</p>
-    </div>
-  </a>
-  <button class="delete">Delete Post</button>
-</section>
+    <section class ="card">
+        <a href="/post/{{id}}">
+            <h4 class="post" data-post="{{post.id}}">{{title}}</h4>
+            <div class="card-body">
+                <p>{{content}}</p>
+                <p>Posted by: {{user.username}}</p>
+                <p>{{createdAt}}</p>
+            </div>
+        </a>
+        <button class="delete-post" data-id="{{post.id}}">Delete Post</button>
+    </section>
 {{/each}}
-
-<script src="../public/js/deletepost.js"></script>
+<script src="/js/deletepost.js"></script>
