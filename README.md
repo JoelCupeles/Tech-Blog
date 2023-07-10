@@ -27,6 +27,7 @@ A full-stack web application that allows users to create an account, log in, and
 To use this application, run `node server.js` in your terminal, and open a web browser to access the app on `localhost:3001`.
 
 ## Demo link
+https://tech-blogl-70b1028f1580.herokuapp.com/login
 
 ## License
 
