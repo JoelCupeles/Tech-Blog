@@ -2,13 +2,13 @@ const { Post } = require('../models');
 
 const postData = [
   {
-    title: "Billy Bob's post",
-    content: "this is billy bob's post",
+    title: "Joel Cupele's post",
+    content: "My first post",
     user_id: 1,
   },
   {
-    title: "Mary Sue's post",
-    content: "this is mary sue's post",
+    title: "Carlo's post",
+    content: "My first post",
     user_id: 2,
   },
 ];

@@ -2,12 +2,12 @@ const { Comment } = require('../models');
 
 const commentData = [
   {
-    content: "Hi Billy Bob, this is Mary Sue",
+    content: "",
     user_id: 2,
     post_id: 1,
   },
   {
-    content: "Hi Mary Sue, this is Billy Bob",
+    content: "",
     user_id: 1,
     post_id: 2,
   },
